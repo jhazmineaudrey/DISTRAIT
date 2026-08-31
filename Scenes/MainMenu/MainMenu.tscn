@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dpv3mwqbt8f3h"]
+
+[ext_resource type="Texture2D" uid="uid://crcdi80c4vgq7" path="res://Assets/MainMenu/MM_SeaFront.png" id="1_cdkru"]
+[ext_resource type="Texture2D" uid="uid://dppmsltlk0trw" path="res://Assets/MainMenu/MM_SubmOff.png" id="2_0hjx5"]
+[ext_resource type="Texture2D" uid="uid://do8r0xvwqjgag" path="res://Assets/MainMenu/MM_DockOn.png" id="3_fv0xt"]
+[ext_resource type="Texture2D" uid="uid://dj562awy1vr3h" path="res://Assets/MainMenu/MM_LanternOn.png" id="4_sng02"]
+[ext_resource type="Texture2D" uid="uid://byi34exfqxn3f" path="res://Assets/MainMenu/MM_SeaMid.png" id="5_lic31"]
+[ext_resource type="Texture2D" uid="uid://tw36brgmat4e" path="res://Assets/MainMenu/MM_SeaBack.png" id="6_56wdt"]
+[ext_resource type="Texture2D" uid="uid://dr25r0daltvl" path="res://Assets/MainMenu/MM_Title.png" id="7_k2pwb"]
+[ext_resource type="Texture2D" uid="uid://br2nriulx6j5y" path="res://Assets/MainMenu/MM_BG.png" id="8_ah1a3"]
+
+[node name="MainMenu" type="Node2D" unique_id=2088910539]
+
+[node name="ParallaxLayers" type="Node2D" parent="." unique_id=2060360450]
+
+[node name="SeaFront" type="Parallax2D" parent="ParallaxLayers" unique_id=929120564]
+
+[node name="SeaFront" type="Sprite2D" parent="ParallaxLayers/SeaFront" unique_id=766537347]
+z_index = 6
+position = Vector2(-40.888916, -23)
+scale = Vector2(1.0638889, 1.0638889)
+texture = ExtResource("1_cdkru")
+centered = false
+
+[node name="SubmDockTitle" type="Parallax2D" parent="ParallaxLayers" unique_id=833480432]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Title" type="Sprite2D" parent="ParallaxLayers/SubmDockTitle" unique_id=498977980]
+z_index = 1
+position = Vector2(24.09, -22.99)
+texture = ExtResource("7_k2pwb")
+centered = false
+
+[node name="Submersible" type="Sprite2D" parent="ParallaxLayers/SubmDockTitle" unique_id=1763473307]
+z_index = 5
+position = Vector2(-44.444458, -25)
+scale = Vector2(1.0694444, 1.0694444)
+texture = ExtResource("2_0hjx5")
+centered = false
+
+[node name="Dock" type="Sprite2D" parent="ParallaxLayers/SubmDockTitle" unique_id=220897697]
+z_index = 3
+position = Vector2(-44.444458, -25)
+scale = Vector2(1.0694444, 1.0694444)
+texture = ExtResource("3_fv0xt")
+centered = false
+
+[node name="Lamp" type="Sprite2D" parent="ParallaxLayers/SubmDockTitle/Dock" unique_id=1123826313]
+z_index = -1
+texture = ExtResource("4_sng02")
+centered = false
+
+[node name="SeaMid" type="Parallax2D" parent="ParallaxLayers" unique_id=521456743]
+scroll_scale = Vector2(0.6, 0.6)
+
+[node name="SeaMid" type="Sprite2D" parent="ParallaxLayers/SeaMid" unique_id=937333496]
+z_index = 4
+position = Vector2(-49.777832, -28)
+scale = Vector2(1.0777779, 1.0777777)
+texture = ExtResource("5_lic31")
+centered = false
+
+[node name="SeaBack2" type="Parallax2D" parent="ParallaxLayers" unique_id=1784338436]
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="SeaBack" type="Sprite2D" parent="ParallaxLayers/SeaBack2" unique_id=726490157]
+z_index = 2
+position = Vector2(-44.444458, -25)
+scale = Vector2(1.0694444, 1.0694444)
+texture = ExtResource("6_56wdt")
+centered = false
+
+[node name="Background" type="Parallax2D" parent="ParallaxLayers" unique_id=2107895302]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="Background" type="Sprite2D" parent="ParallaxLayers/Background" unique_id=299588374]
+position = Vector2(-49.777832, -28)
+scale = Vector2(1.0777779, 1.0777777)
+texture = ExtResource("8_ah1a3")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2073284881]
+position = Vector2(639, 358)
