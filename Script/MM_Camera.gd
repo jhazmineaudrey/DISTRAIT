@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var max_offset: Vector2 = Vector2(100, 50)
+@export var max_offset: Vector2 = Vector2(80, 45)
 @export var smooth_speed: float = 10.0
 var center_position: Vector2
 

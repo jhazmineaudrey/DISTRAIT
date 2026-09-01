@@ -14,6 +14,10 @@ config/name="DISTRAIT"
 run/main_scene="uid://dpv3mwqbt8f3h"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[autoload]
+
+SceneLoader="*uid://jauffil1d42j"
+
 [display]
 
 window/size/viewport_width=1280

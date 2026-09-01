@@ -3,9 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://crcdi80c4vgq7" path="res://Assets/MainMenu/MM_SeaFront.png" id="1_cdkru"]
 [ext_resource type="Script" uid="uid://cgctckuh86jk6" path="res://Script/MainMenu.gd" id="1_k2pwb"]
 [ext_resource type="Texture2D" uid="uid://dppmsltlk0trw" path="res://Assets/MainMenu/MM_SubmOnn.png" id="2_56wdt"]
+[ext_resource type="Texture2D" uid="uid://b2v3pnibif5tn" path="res://Assets/MainMenu/MM_Play.png" id="2_txptg"]
 [ext_resource type="Script" uid="uid://bvv3vy3thilck" path="res://Script/MainMenu/SubmOnOff.gd" id="3_56wdt"]
+[ext_resource type="Texture2D" uid="uid://blcesfdnicmdo" path="res://Assets/MainMenu/MM_PlayHover.png" id="3_cmo68"]
 [ext_resource type="Texture2D" uid="uid://do8r0xvwqjgag" path="res://Assets/MainMenu/MM_DockOn.png" id="3_fv0xt"]
+[ext_resource type="Texture2D" uid="uid://yi0b5l1evvhn" path="res://Assets/MainMenu/MM_Options.png" id="4_5o35t"]
 [ext_resource type="Texture2D" uid="uid://dj562awy1vr3h" path="res://Assets/MainMenu/MM_LanternOn.png" id="4_sng02"]
+[ext_resource type="Texture2D" uid="uid://6c4w0sgn4k6" path="res://Assets/MainMenu/MM_OptionsHover.png" id="5_ahojg"]
 [ext_resource type="Script" uid="uid://cumpyilp67veo" path="res://Script/MainMenu/DockOnOff.gd" id="5_k2pwb"]
 [ext_resource type="Texture2D" uid="uid://byi34exfqxn3f" path="res://Assets/MainMenu/MM_SeaMid.png" id="5_lic31"]
 [ext_resource type="Texture2D" uid="uid://tw36brgmat4e" path="res://Assets/MainMenu/MM_SeaBack.png" id="6_56wdt"]
@@ -13,14 +17,18 @@
 [ext_resource type="Texture2D" uid="uid://dr25r0daltvl" path="res://Assets/MainMenu/MM_Title.png" id="7_k2pwb"]
 [ext_resource type="Texture2D" uid="uid://br2nriulx6j5y" path="res://Assets/MainMenu/MM_BG.png" id="8_ah1a3"]
 [ext_resource type="Script" uid="uid://dl016d0i4gpqy" path="res://Script/MM_Camera.gd" id="9_fv0xt"]
+[ext_resource type="Script" uid="uid://dbp6iotsfrbf5" path="res://Script/MainMenu/play.gd" id="11_5o35t"]
+[ext_resource type="Script" uid="uid://bfdxtq64ftxtw" path="res://Script/MainMenu/options.gd" id="14_ahojg"]
 
 [node name="MainMenu" type="Node2D" unique_id=2088910539]
 script = ExtResource("1_k2pwb")
 
 [node name="ParallaxLayers" type="Node2D" parent="." unique_id=2060360450]
+metadata/_edit_lock_ = true
 
 [node name="SeaFront" type="Parallax2D" parent="ParallaxLayers" unique_id=929120564]
 scroll_scale = Vector2(1.9, 1.9)
+metadata/_edit_lock_ = true
 
 [node name="SeaFront" type="Sprite2D" parent="ParallaxLayers/SeaFront" unique_id=766537347]
 z_index = 6
@@ -28,9 +36,11 @@ position = Vector2(-69.33327, -38.999958)
 scale = Vector2(1.1083332, 1.1083332)
 texture = ExtResource("1_cdkru")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Subm" type="Parallax2D" parent="ParallaxLayers" unique_id=1734013248]
 scroll_scale = Vector2(1.6, 1.6)
+metadata/_edit_lock_ = true
 
 [node name="Submersible" type="Sprite2D" parent="ParallaxLayers/Subm" unique_id=993247215 groups=["Light"]]
 z_index = 5
@@ -39,36 +49,83 @@ scale = Vector2(1.1027778, 1.1027778)
 texture = ExtResource("2_56wdt")
 centered = false
 script = ExtResource("3_56wdt")
+metadata/_edit_lock_ = true
 
-[node name="DockTitle" type="Parallax2D" parent="ParallaxLayers" unique_id=833480432]
+[node name="Dock" type="Parallax2D" parent="ParallaxLayers" unique_id=833480432]
 scroll_scale = Vector2(1.3, 1.3)
+metadata/_edit_lock_ = true
 
-[node name="Dock" type="Sprite2D" parent="ParallaxLayers/DockTitle" unique_id=220897697 groups=["Light"]]
+[node name="Dock" type="Sprite2D" parent="ParallaxLayers/Dock" unique_id=220897697 groups=["Light"]]
 z_index = 3
 position = Vector2(-44.444458, -25)
 scale = Vector2(1.0694444, 1.0694444)
 texture = ExtResource("3_fv0xt")
 centered = false
 script = ExtResource("5_k2pwb")
+metadata/_edit_lock_ = true
 
-[node name="Lamp" type="Sprite2D" parent="ParallaxLayers/DockTitle/Dock" unique_id=1123826313 groups=["Light"]]
+[node name="Lamp" type="Sprite2D" parent="ParallaxLayers/Dock/Dock" unique_id=1123826313 groups=["Light"]]
 z_index = -1
 position = Vector2(-26.597534, -14.961121)
 scale = Vector2(1.0415586, 1.0415586)
 texture = ExtResource("4_sng02")
 centered = false
 script = ExtResource("7_ah1a3")
+metadata/_edit_lock_ = true
 
 [node name="Title" type="Parallax2D" parent="ParallaxLayers" unique_id=1921875827]
+metadata/_edit_lock_ = true
+
+[node name="Buttons" type="Node2D" parent="ParallaxLayers/Title" unique_id=1397284504]
+z_index = 10
+position = Vector2(-47.45, 0)
+
+[node name="Play" type="Button" parent="ParallaxLayers/Title/Buttons" unique_id=1850782636]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 167.0
+offset_top = 366.0
+offset_right = 367.0
+offset_bottom = 466.0
+mouse_default_cursor_shape = 2
+script = ExtResource("11_5o35t")
+
+[node name="Play" type="Sprite2D" parent="ParallaxLayers/Title/Buttons/Play" unique_id=2111223746]
+texture = ExtResource("2_txptg")
+offset = Vector2(541.745, -14.72)
+
+[node name="PlayH" type="Sprite2D" parent="ParallaxLayers/Title/Buttons/Play" unique_id=1053327031]
+visible = false
+texture = ExtResource("3_cmo68")
+offset = Vector2(541.745, -14.72)
+
+[node name="Options" type="Button" parent="ParallaxLayers/Title/Buttons" unique_id=1128212605]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 167.0
+offset_top = 487.0
+offset_right = 472.0
+offset_bottom = 587.0
+mouse_default_cursor_shape = 2
+script = ExtResource("14_ahojg")
+
+[node name="Options" type="Sprite2D" parent="ParallaxLayers/Title/Buttons/Options" unique_id=765960082]
+texture = ExtResource("4_5o35t")
+offset = Vector2(541.745, -131.95)
+
+[node name="OptionsH" type="Sprite2D" parent="ParallaxLayers/Title/Buttons/Options" unique_id=516032585]
+visible = false
+texture = ExtResource("5_ahojg")
+offset = Vector2(541.745, -131.95)
 
 [node name="Title" type="Sprite2D" parent="ParallaxLayers/Title" unique_id=498977980]
 z_index = 1
 position = Vector2(24.09, -22.99)
 texture = ExtResource("7_k2pwb")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="SeaMid" type="Parallax2D" parent="ParallaxLayers" unique_id=521456743]
 scroll_scale = Vector2(0.9, 0.9)
+metadata/_edit_lock_ = true
 
 [node name="SeaMid" type="Sprite2D" parent="ParallaxLayers/SeaMid" unique_id=937333496]
 z_index = 4
@@ -79,6 +136,7 @@ centered = false
 
 [node name="SeaBack2" type="Parallax2D" parent="ParallaxLayers" unique_id=1784338436]
 scroll_scale = Vector2(0.4, 0.4)
+metadata/_edit_lock_ = true
 
 [node name="SeaBack" type="Sprite2D" parent="ParallaxLayers/SeaBack2" unique_id=726490157]
 z_index = 2
@@ -86,15 +144,18 @@ position = Vector2(-65.77786, -37.00005)
 scale = Vector2(1.1027778, 1.1027778)
 texture = ExtResource("6_56wdt")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Background" type="Parallax2D" parent="ParallaxLayers" unique_id=2107895302]
 scroll_scale = Vector2(0.1, 0.1)
+metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="ParallaxLayers/Background" unique_id=299588374]
 position = Vector2(-69.33334, -38.999992)
 scale = Vector2(1.1083333, 1.1083332)
 texture = ExtResource("8_ah1a3")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2073284881]
 position = Vector2(639, 358)
@@ -112,4 +173,10 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
+[connection signal="mouse_entered" from="ParallaxLayers/Title/Buttons/Play" to="ParallaxLayers/Title/Buttons/Play" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ParallaxLayers/Title/Buttons/Play" to="ParallaxLayers/Title/Buttons/Play" method="_on_mouse_exited"]
+[connection signal="pressed" from="ParallaxLayers/Title/Buttons/Play" to="ParallaxLayers/Title/Buttons/Play" method="_on_pressed"]
+[connection signal="mouse_entered" from="ParallaxLayers/Title/Buttons/Options" to="ParallaxLayers/Title/Buttons/Options" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ParallaxLayers/Title/Buttons/Options" to="ParallaxLayers/Title/Buttons/Options" method="_on_mouse_exited"]
+[connection signal="pressed" from="ParallaxLayers/Title/Buttons/Options" to="ParallaxLayers/Title/Buttons/Options" method="_on_pressed"]
 [connection signal="timeout" from="LightFlicker" to="." method="_on_light_flicker_timeout"]
