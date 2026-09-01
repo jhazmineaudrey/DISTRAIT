@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://dasykytwwdgmm"
 
 SceneLoader="*uid://jauffil1d42j"
 Sfx="*uid://dtbf4mqanw6of"
+GlobalVars="*uid://baaxhjwxprtmi"
 
 [display]
 

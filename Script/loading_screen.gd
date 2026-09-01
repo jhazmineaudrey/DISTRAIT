@@ -15,7 +15,7 @@ func _on_progress_changed(_new_value: float) -> void:
 	pass
 		
 func _on_load_finished() -> void:
-	Sfx.fade_master_volume(0, duration)
+	Sfx.fade_master_volume(GlobalVars.current_db, duration)
 	await get_tree().create_timer(duration).timeout
 	var tw = create_tween().set_ignore_time_scale(true).tween_property(self, "modulate:a", 0, 1)
 	await tw.finished

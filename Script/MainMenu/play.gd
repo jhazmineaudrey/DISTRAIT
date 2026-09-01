@@ -9,7 +9,7 @@ func _on_pressed() -> void:
 	var btns = buttons.get_children()
 	
 	for i in btns:
-		i.disabled = true
+		i.mouse_filter = MOUSE_FILTER_IGNORE
 		
 	Sfx.fade_master_volume(-80, 1)
 	
