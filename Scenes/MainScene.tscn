@@ -1,6 +1,27 @@
 [gd_scene format=3 uid="uid://berhvdtyr4qjv"]
 
 [ext_resource type="Script" uid="uid://cpe6x6hhd5jbv" path="res://Script/MainScene.gd" id="1_hpc76"]
+[ext_resource type="Texture2D" uid="uid://c52gyngmnmflr" path="res://Assets/MG_BG.png" id="2_tr2i4"]
+[ext_resource type="Script" uid="uid://dl016d0i4gpqy" path="res://Script/MM_Camera.gd" id="3_nhkr4"]
 
 [node name="MainScene" type="Node2D" unique_id=1913426939]
 script = ExtResource("1_hpc76")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=61916557]
+position = Vector2(-81.77783, -46)
+scale = Vector2(1.1277778, 1.1277778)
+texture = ExtResource("2_tr2i4")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1039508632]
+position = Vector2(639, 358)
+limit_left = -46
+limit_top = -32
+limit_right = 1330
+limit_bottom = 751
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+script = ExtResource("3_nhkr4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1603309235]
