@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dtbf4mqanw6of"]
+
+[ext_resource type="Script" uid="uid://bdg3bqkm5i6o2" path="res://Script/SFX.gd" id="1_v1k2y"]
+[ext_resource type="AudioStream" uid="uid://doj460gfo4m0h" path="res://Assets/Audio/SFX/HorrorAmb1.mp3" id="2_u8acq"]
+[ext_resource type="AudioStream" uid="uid://dtbgk7js331gi" path="res://Assets/Audio/SFX/OceanAmb.mp3" id="3_efi4e"]
+[ext_resource type="AudioStream" uid="uid://di7qskg4t8fan" path="res://Assets/Audio/SFX/FlickeringLights.mp3" id="4_qv7xu"]
+[ext_resource type="AudioStream" uid="uid://cyxbgk1hwcnnr" path="res://Assets/Audio/SFX/DeepSeaAmb.mp3" id="5_efi4e"]
+
+[node name="AudioStreamPlayer" type="Node" unique_id=1090072252]
+process_mode = 3
+script = ExtResource("1_v1k2y")
+
+[node name="HorrorAmb1" type="AudioStreamPlayer" parent="." unique_id=187424878]
+stream = ExtResource("2_u8acq")
+bus = &"SFX"
+parameters/looping = true
+
+[node name="OceanAmb" type="AudioStreamPlayer" parent="." unique_id=1621808539]
+stream = ExtResource("3_efi4e")
+bus = &"SFX"
+parameters/looping = true
+
+[node name="FlickeringLights" type="AudioStreamPlayer" parent="." unique_id=478566976]
+stream = ExtResource("4_qv7xu")
+bus = &"SFX"
+
+[node name="DeepSeaAmb" type="AudioStreamPlayer" parent="." unique_id=633681925]
+stream = ExtResource("5_efi4e")
+volume_db = -5.213
+bus = &"SFX"
+parameters/looping = true

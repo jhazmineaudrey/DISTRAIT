@@ -10,6 +10,8 @@ func _on_pressed() -> void:
 	
 	for i in btns:
 		i.disabled = true
+		
+	Sfx.fade_master_volume(-80, 1)
 	
 func _on_mouse_entered() -> void:
 	play_h.visible = true

@@ -14,15 +14,19 @@ config/name="DISTRAIT"
 run/main_scene="uid://dpv3mwqbt8f3h"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[audio]
+
+buses/default_bus_layout="uid://dasykytwwdgmm"
+
 [autoload]
 
 SceneLoader="*uid://jauffil1d42j"
+Sfx="*uid://dtbf4mqanw6of"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

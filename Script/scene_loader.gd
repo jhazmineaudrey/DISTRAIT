@@ -12,7 +12,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	set_process(false)
 	
-func load_scene(_scene_path: String, slduration: float) -> void:
+func load_scene(_scene_path: String, duration: float) -> void:
 	previous_scene_path = scene_path
 	scene_path = _scene_path
 	
@@ -21,7 +21,7 @@ func load_scene(_scene_path: String, slduration: float) -> void:
 	load_finished.connect(new_load_screen._on_load_finished)
 	
 	await new_load_screen.loading_screen_ready
-	new_load_screen.duration = slduration
+	new_load_screen.duration = duration
 	
 	start_load()
 	
