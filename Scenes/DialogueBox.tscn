@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://dt1cjbflsqkiq"]
+
+[ext_resource type="Texture2D" uid="uid://c5g4hdhoa0wao" path="res://Assets/DialogueBox.png" id="1_m4115"]
+[ext_resource type="Script" uid="uid://clkcukq1kafmg" path="res://Script/dialogue_box.gd" id="1_sh7kx"]
+
+[sub_resource type="Animation" id="Animation_m4115"]
+resource_name = "BoxPopUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueBox:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.42760566, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogueBox:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-0.0010537407, -0.0019157088), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogueBox:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1042.579, 300), Vector2(160, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_sh7kx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueBox:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogueBox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogueBox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mjj0w"]
+_data = {
+&"BoxPopUp": SubResource("Animation_m4115"),
+&"RESET": SubResource("Animation_sh7kx")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1372168374]
+z_index = 500
+script = ExtResource("1_sh7kx")
+
+[node name="DialogueBox" type="Sprite2D" parent="." unique_id=2144128223]
+position = Vector2(160, 40)
+texture = ExtResource("1_m4115")
+centered = false
+region_enabled = true
+region_rect = Rect2(168.53412, 52.547928, 949.0612, 522.23474)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1311871032]
+libraries/ = SubResource("AnimationLibrary_mjj0w")
+speed_scale = 3.5
+
+[node name="Dialogue" type="RichTextLabel" parent="." unique_id=77818840]
+offset_left = 218.0
+offset_top = 68.0
+offset_right = 1056.0
+offset_bottom = 243.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for ."
+fit_content = true
+
+[node name="SkipLabel" type="RichTextLabel" parent="." unique_id=1343859264]
+visible = false
+offset_left = 983.0
+offset_top = 222.0
+offset_right = 1069.0
+offset_bottom = 245.0
+text = "'E' to Skip"
+fit_content = true
+horizontal_alignment = 1
+
+[connection signal="dialogue_finished" from="." to="." method="_on_dialogue_finished"]
