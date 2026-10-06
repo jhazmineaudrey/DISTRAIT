@@ -1,6 +1,8 @@
 extends Node2D
 
 signal dialogue_finished
+signal dialogue_portion_done(dialogue_text: String)
+signal dialogue_portion_started(dialogue_text: String)
 signal end
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -36,12 +38,14 @@ func show_dialogue(dialogueInfo: Array):
 
 		dialogue.text = i[0]
 		var total_chars = i[0].length()
-		dialogue.visible_characters = 0
+		dialogue.visible_characters = 0	
+		
+		dialogue_portion_started.emit(dialogue.text)
 		
 		in_dialogue	= true
 		set_process_input(true)
 
-		for char in range(total_chars):
+		for _char in range(total_chars):
 			if skipped:
 				skipped = false
 				dialogue.visible_characters = -1
@@ -58,6 +62,7 @@ func show_dialogue(dialogueInfo: Array):
 		if index == dialogueInfo.size() - 1:
 			dialogue_finished.emit()
 		else:
+			dialogue_portion_done.emit(dialogue.text)
 			set_process_input(false)
 				
 

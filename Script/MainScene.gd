@@ -21,5 +21,14 @@ func _ready() -> void:
 	await get_tree().create_timer(3.0).timeout
 
 	var db = GlobalVars.instantiate_dialogue_box()
+	db.dialogue_portion_done.connect(_intro_dialogue)
+	db.dialogue_portion_started.connect(_intro_dialogue_start)
 	db.show_dialogue(dlg1)
-		
+	
+func _intro_dialogue_start(dialogue_text : String) -> void:
+		if dialogue_text == dlg1[2][0]:
+			print("second_start")
+			
+func _intro_dialogue(dialogue_text : String) -> void:
+		if dialogue_text == dlg1[2][0]:
+			print("second_end")

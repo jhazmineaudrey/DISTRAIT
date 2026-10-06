@@ -25,3 +25,11 @@ position_smoothing_speed = 2.0
 script = ExtResource("3_nhkr4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1603309235]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=43382064]
+z_index = -1
+offset_left = -254.0
+offset_top = -160.0
+offset_right = 1587.0
+offset_bottom = 897.0
+color = Color(0.26872605, 0.5260534, 0.65183556, 1)
