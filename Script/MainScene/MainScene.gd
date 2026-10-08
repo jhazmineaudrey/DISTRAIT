@@ -95,7 +95,8 @@ func new_zone_label(zoneLabelText : String, event : Signal):
 	zone_label_text.text = zoneLabelText
 	zone_label_anim_player.play("ZoneLabelAnim")
 	
-	await get_tree().create_timer(4.0).timeout
+	if get_tree():
+		await get_tree().create_timer(4.0).timeout
 	
 	zone_label_anim_player.play_backwards("ZoneLabelAnim")
 	event.emit()
