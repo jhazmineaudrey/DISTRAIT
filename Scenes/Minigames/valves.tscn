@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://mdayleesfvr2"]
+
+[ext_resource type="Texture2D" uid="uid://bddwg34ncm6d7" path="res://Assets/Minigames/Valve/ValveIndicatorNormal.png" id="1_n3ml1"]
+[ext_resource type="Texture2D" uid="uid://d2a35ojgfk1ik" path="res://Assets/Minigames/Valve/ValvePipe.png" id="1_q5854"]
+[ext_resource type="Script" uid="uid://bcnr8olih1f1x" path="res://Script/Minigames/valves.gd" id="1_tiifh"]
+[ext_resource type="Texture2D" uid="uid://b022irleldfgt" path="res://Assets/Minigames/Valve/ValveIndicatorSuccess.png" id="3_cc4wq"]
+[ext_resource type="Texture2D" uid="uid://ci84m1vtdwcsw" path="res://Assets/Minigames/Valve/ValveWheel.png" id="4_tiifh"]
+[ext_resource type="FontFile" uid="uid://dm4uqsb2aowe5" path="res://Assets/Fonts/Viga-Regular.ttf" id="5_cc4wq"]
+
+[sub_resource type="Gradient" id="Gradient_cc4wq"]
+offsets = PackedFloat32Array(0.5481928)
+colors = PackedColorArray(0.046814576, 0.4204376, 1.92523e-07, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_idtpb"]
+gradient = SubResource("Gradient_cc4wq")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_e6b5y"]
+offsets = PackedFloat32Array(0.5481928)
+colors = PackedColorArray(0.86915416, 0, 0.41306487, 0.4392157)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vgtnx"]
+gradient = SubResource("Gradient_e6b5y")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="Valves" type="Node2D" unique_id=717702039]
+script = ExtResource("1_tiifh")
+
+[node name="Pipe" type="Sprite2D" parent="." unique_id=756611882]
+texture = ExtResource("1_q5854")
+centered = false
+
+[node name="Valve" type="Node2D" parent="." unique_id=1868413827]
+
+[node name="ValveIndicatorNormal" type="Sprite2D" parent="Valve" unique_id=655005093]
+texture = ExtResource("1_n3ml1")
+centered = false
+
+[node name="ValveIndicatorSuccess" type="Sprite2D" parent="Valve" unique_id=1067602221]
+visible = false
+texture = ExtResource("3_cc4wq")
+centered = false
+
+[node name="ValveWheel" type="TextureRect" parent="." unique_id=1494525127]
+offset_left = 152.0
+offset_top = 39.0
+offset_right = 652.0
+offset_bottom = 539.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("4_tiifh")
+metadata/_edit_use_anchors_ = true
+
+[node name="EditableLabel" type="RichTextLabel" parent="." unique_id=1270512937]
+offset_left = 848.0
+offset_top = 266.0
+offset_right = 1056.0
+offset_bottom = 379.0
+theme_override_fonts/normal_font = ExtResource("5_cc4wq")
+theme_override_font_sizes/normal_font_size = 82
+text = "1000"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="IndicatorLabel" type="RichTextLabel" parent="." unique_id=1372383523]
+offset_left = 871.0
+offset_top = 541.0
+offset_right = 1030.0588
+offset_bottom = 619.0
+theme_override_fonts/normal_font = ExtResource("5_cc4wq")
+theme_override_font_sizes/normal_font_size = 46
+text = "1000"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="IndicatorLight" type="PointLight2D" parent="." unique_id=1080750385]
+visible = false
+position = Vector2(950, 580.5)
+scale = Vector2(2.000001, 1.0468751)
+energy = 1.15
+texture = SubResource("GradientTexture2D_idtpb")
+
+[node name="EditableLight" type="PointLight2D" parent="." unique_id=514997471]
+position = Vector2(951.5, 319.75)
+scale = Vector2(3.3281257, 1.6640624)
+energy = 1.25
+texture = SubResource("GradientTexture2D_vgtnx")

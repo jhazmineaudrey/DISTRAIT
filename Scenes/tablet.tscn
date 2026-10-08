@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://3sgfs6ha6ayk"]
+
+[ext_resource type="Texture2D" uid="uid://ysf564t0vr3u" path="res://Assets/TabletSmall.png" id="1_2jhf0"]
+[ext_resource type="Script" uid="uid://x8381wvgb0js" path="res://Script/tablet.gd" id="1_6bwlg"]
+[ext_resource type="FontFile" uid="uid://dm4uqsb2aowe5" path="res://Assets/Fonts/Viga-Regular.ttf" id="3_vd7nb"]
+
+[sub_resource type="Animation" id="Animation_oppe4"]
+resource_name = "Entrance_Exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(233.375, -53.885), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vd7nb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Instruction:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset_transform_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6bwlg"]
+resource_name = "Tilt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Instruction:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.20943951023931956, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vd7nb"]
+_data = {
+&"Entrance_Exit": SubResource("Animation_oppe4"),
+&"RESET": SubResource("Animation_vd7nb"),
+&"Tilt": SubResource("Animation_6bwlg")
+}
+
+[node name="Tablet" type="TextureRect" unique_id=1210669602]
+offset_left = -113.0
+offset_top = -66.0
+offset_right = 107.00008
+offset_bottom = 64.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
+texture = ExtResource("1_2jhf0")
+script = ExtResource("1_6bwlg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=262313011]
+libraries/ = SubResource("AnimationLibrary_vd7nb")
+speed_scale = 5.17
+
+[node name="Instruction" type="RichTextLabel" parent="." unique_id=383119819]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 23.0
+offset_top = -34.0
+offset_right = 197.0
+offset_bottom = 6.0
+theme_override_fonts/normal_font = ExtResource("3_vd7nb")
+text = "'T' to Open/Close"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

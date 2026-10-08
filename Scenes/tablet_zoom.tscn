@@ -1,0 +1,221 @@
+[gd_scene format=3 uid="uid://dhqwir2xhepyo"]
+
+[ext_resource type="Texture2D" uid="uid://belxyoal6hk8b" path="res://Assets/TabletZoomed.png" id="1_h2sft"]
+[ext_resource type="Script" uid="uid://s6j8fngd72jy" path="res://Script/tablet_zoom.gd" id="1_pwmp4"]
+[ext_resource type="Texture2D" uid="uid://csj57myxjibac" path="res://Assets/TabletOn.png" id="2_ujx5e"]
+[ext_resource type="FontFile" uid="uid://dm4uqsb2aowe5" path="res://Assets/Fonts/Viga-Regular.ttf" id="4_1nsng"]
+[ext_resource type="Script" uid="uid://ikrrayekx072" path="res://Script/copy_place.gd" id="5_xstju"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08i74"]
+bg_color = Color(0.7357868, 0.99290544, 0.7722442, 1)
+
+[sub_resource type="Animation" id="Animation_pwmp4"]
+resource_name = "Entrance_Exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TabletTexture:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.20943951023931956, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TabletTexture:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(817, -825.99994), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1nsng"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TabletTexture:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TabletTexture:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xstju"]
+resource_name = "Shake"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TabletTexture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(36.325, 0), Vector2(-35.4, 0), Vector2(11.69, 0), Vector2(-7.795, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TabletTexture:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xstju"]
+_data = {
+&"Entrance_Exit": SubResource("Animation_pwmp4"),
+&"RESET": SubResource("Animation_1nsng"),
+&"Shake": SubResource("Animation_xstju")
+}
+
+[node name="TabletZoom" type="Node2D" unique_id=684027332]
+z_index = 99
+script = ExtResource("1_pwmp4")
+
+[node name="FadeBG" type="ColorRect" parent="." unique_id=246008272]
+modulate = Color(1, 1, 1, 0)
+offset_left = -19.0
+offset_top = -27.0
+offset_right = 1310.0
+offset_bottom = 747.0
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="TabletTexture" type="Node2D" parent="." unique_id=1296268689]
+
+[node name="TabletOff" type="Sprite2D" parent="TabletTexture" unique_id=1662303137]
+texture = ExtResource("1_h2sft")
+centered = false
+
+[node name="TabletOn" type="Sprite2D" parent="TabletTexture" unique_id=72144280]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("2_ujx5e")
+centered = false
+
+[node name="TabletNodes" type="Node2D" parent="TabletTexture" unique_id=118377019]
+modulate = Color(1, 1, 1, 0)
+
+[node name="NeedToCopy" type="RichTextLabel" parent="TabletTexture/TabletNodes" unique_id=677660417]
+offset_left = 376.0
+offset_top = 127.0
+offset_right = 859.0
+offset_bottom = 341.0
+theme_override_fonts/normal_font = ExtResource("4_1nsng")
+theme_override_font_sizes/normal_font_size = 32
+text = "Underneath the surface."
+scroll_following = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CopyPlace" type="TextEdit" parent="TabletTexture/TabletNodes" unique_id=1908994259]
+offset_left = 380.0
+offset_top = 392.0
+offset_right = 859.0
+offset_bottom = 587.0
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Input the above stated text..."
+wrap_mode = 1
+script = ExtResource("5_xstju")
+
+[node name="DepthMeter" type="ProgressBar" parent="TabletTexture/TabletNodes" unique_id=1369417390]
+offset_left = 4.0
+offset_top = 368.0
+offset_right = 418.0
+offset_bottom = 417.47937
+rotation = -1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/fill = SubResource("StyleBoxFlat_08i74")
+show_percentage = false
+
+[node name="ResearchMeter" type="ProgressBar" parent="TabletTexture/TabletNodes" unique_id=820962563]
+offset_left = 812.0
+offset_top = 368.0
+offset_right = 1226.0
+offset_bottom = 417.47937
+rotation = -1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/fill = SubResource("StyleBoxFlat_08i74")
+show_percentage = false
+
+[node name="DepthLabel" type="RichTextLabel" parent="TabletTexture/TabletNodes" unique_id=338107982]
+offset_left = 102.0
+offset_top = 107.0
+offset_right = 329.0
+offset_bottom = 156.0
+theme_override_fonts/normal_font = ExtResource("4_1nsng")
+theme_override_font_sizes/normal_font_size = 36
+text = "DEPTH"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DepthLabel2" type="RichTextLabel" parent="TabletTexture/TabletNodes" unique_id=1996048238]
+offset_left = 102.0
+offset_top = 135.0
+offset_right = 329.0
+offset_bottom = 184.0
+theme_override_fonts/normal_font = ExtResource("4_1nsng")
+theme_override_font_sizes/normal_font_size = 19
+text = "[0/11000m]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResearchLabel" type="RichTextLabel" parent="TabletTexture/TabletNodes" unique_id=34312150]
+offset_left = 907.0
+offset_top = 104.0
+offset_right = 1134.0
+offset_bottom = 153.0
+theme_override_fonts/normal_font = ExtResource("4_1nsng")
+theme_override_font_sizes/normal_font_size = 29
+text = "RESEARCH"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResearchLabel2" type="RichTextLabel" parent="TabletTexture/TabletNodes" unique_id=1908666333]
+offset_left = 907.0
+offset_top = 136.0
+offset_right = 1134.0
+offset_bottom = 185.0
+theme_override_fonts/normal_font = ExtResource("4_1nsng")
+theme_override_font_sizes/normal_font_size = 29
+text = "QUOTA"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=337536083]
+libraries/ = SubResource("AnimationLibrary_xstju")
+speed_scale = 3.0
+
+[connection signal="text_submitted" from="TabletTexture/TabletNodes/CopyPlace" to="." method="_on_copy_place_text_submitted"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dt1cjbflsqkiq"]
 
 [ext_resource type="Texture2D" uid="uid://c5g4hdhoa0wao" path="res://Assets/DialogueBox.png" id="1_m4115"]
-[ext_resource type="Script" uid="uid://clkcukq1kafmg" path="res://Script/dialogue_box.gd" id="1_sh7kx"]
+[ext_resource type="Script" uid="uid://clkcukq1kafmg" path="res://Script/MainScene/dialogue_box.gd" id="1_sh7kx"]
 
 [sub_resource type="Animation" id="Animation_m4115"]
 resource_name = "BoxPopUp"

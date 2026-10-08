@@ -1,8 +1,104 @@
 [gd_scene format=3 uid="uid://berhvdtyr4qjv"]
 
-[ext_resource type="Script" uid="uid://cpe6x6hhd5jbv" path="res://Script/MainScene.gd" id="1_hpc76"]
+[ext_resource type="Script" uid="uid://cpe6x6hhd5jbv" path="res://Script/MainScene/MainScene.gd" id="1_hpc76"]
 [ext_resource type="Texture2D" uid="uid://c52gyngmnmflr" path="res://Assets/MG_BG.png" id="2_tr2i4"]
-[ext_resource type="Script" uid="uid://dl016d0i4gpqy" path="res://Script/MM_Camera.gd" id="3_nhkr4"]
+[ext_resource type="Script" uid="uid://dl016d0i4gpqy" path="res://Script/MainMenu/MM_Camera.gd" id="3_nhkr4"]
+[ext_resource type="Texture2D" uid="uid://crhnqsa42w1ix" path="res://Assets/spotlight.png" id="4_7rqgy"]
+[ext_resource type="Script" uid="uid://dm81nen3ihlhg" path="res://Script/MainScene/tutorial_lights.gd" id="5_qxria"]
+[ext_resource type="FontFile" uid="uid://b1m3mibvydom5" path="res://Assets/Fonts/Zyphyte.ttf" id="6_q68mp"]
+[ext_resource type="FontFile" uid="uid://3jxs7uduyamq" path="res://Assets/Fonts/Cinzel/Cinzel-Bold.ttf" id="7_f140w"]
+
+[sub_resource type="Gradient" id="Gradient_0iob3"]
+offsets = PackedFloat32Array(0, 0.55421686, 0.8012048, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.060240984, 0, 0, 0, 0.03893625, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_08i74"]
+gradient = SubResource("Gradient_0iob3")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Animation" id="Animation_q68mp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ZoneLabelText:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(196, 21)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ZoneLabelText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ZoneLabelBG:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f140w"]
+resource_name = "ZoneLabelAnim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ZoneLabelText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(196, -94.55), Vector2(196, 21)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ZoneLabelText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ZoneLabelBG:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.13333334, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0iob3"]
+_data = {
+&"RESET": SubResource("Animation_q68mp"),
+&"ZoneLabelAnim": SubResource("Animation_f140w")
+}
 
 [node name="MainScene" type="Node2D" unique_id=1913426939]
 script = ExtResource("1_hpc76")
@@ -26,10 +122,67 @@ script = ExtResource("3_nhkr4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1603309235]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=43382064]
+[node name="ZoneLabel" type="Control" parent="Camera2D/CanvasLayer" unique_id=1475281471]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1282.0
+offset_bottom = 720.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="ZoneLabelBG" type="TextureRect" parent="Camera2D/CanvasLayer/ZoneLabel" unique_id=175556437]
+layout_mode = 1
+offset_right = 1280.0
+offset_bottom = 717.0
+texture = SubResource("GradientTexture2D_08i74")
+metadata/_edit_lock_ = true
+
+[node name="ZoneLabelText" type="RichTextLabel" parent="Camera2D/CanvasLayer/ZoneLabel" unique_id=2059389157]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 21.0
+offset_right = 1065.0
+offset_bottom = 88.0
+theme_override_fonts/normal_font = ExtResource("6_q68mp")
+theme_override_fonts/bold_font = ExtResource("7_f140w")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 36
+text = "[ EPIPELAGIC ZONE | 0-200m ]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="ZoneLabelAnimPlayer" type="AnimationPlayer" parent="Camera2D/CanvasLayer/ZoneLabel" unique_id=687818502]
+libraries/ = SubResource("AnimationLibrary_0iob3")
+
+[node name="WaterBG" type="ColorRect" parent="." unique_id=43382064]
 z_index = -1
 offset_left = -254.0
 offset_top = -160.0
 offset_right = 1587.0
 offset_bottom = 897.0
+mouse_filter = 2
 color = Color(0.26872605, 0.5260534, 0.65183556, 1)
+metadata/_edit_lock_ = true
+
+[node name="TutPulse" type="Node2D" parent="." unique_id=1915311969]
+
+[node name="TutPulseHidden" type="Node2D" parent="." unique_id=1141039909]
+visible = false
+
+[node name="Valves" type="PointLight2D" parent="TutPulseHidden" unique_id=442052527 groups=["TutorialPoints"]]
+position = Vector2(67, 580)
+scale = Vector2(4.71875, 4.71875)
+color = Color(0, 1, 0, 1)
+energy = 5.84
+texture = ExtResource("4_7rqgy")
+script = ExtResource("5_qxria")
+
+[node name="Comms" type="PointLight2D" parent="TutPulseHidden" unique_id=2026037152 groups=["TutorialPoints"]]
+position = Vector2(949, 438)
+scale = Vector2(5.1875014, 4.71875)
+color = Color(0, 1, 0, 1)
+energy = 5.84
+texture = ExtResource("4_7rqgy")
+script = ExtResource("5_qxria")

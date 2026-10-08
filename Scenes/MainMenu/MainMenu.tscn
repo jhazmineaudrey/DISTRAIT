@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpv3mwqbt8f3h"]
 
 [ext_resource type="Texture2D" uid="uid://crcdi80c4vgq7" path="res://Assets/MainMenu/MM_SeaFront.png" id="1_cdkru"]
-[ext_resource type="Script" uid="uid://cgctckuh86jk6" path="res://Script/MainMenu.gd" id="1_k2pwb"]
+[ext_resource type="Script" uid="uid://cgctckuh86jk6" path="res://Script/MainMenu/MainMenu.gd" id="1_k2pwb"]
 [ext_resource type="Texture2D" uid="uid://dppmsltlk0trw" path="res://Assets/MainMenu/MM_SubmOnn.png" id="2_56wdt"]
 [ext_resource type="Texture2D" uid="uid://b2v3pnibif5tn" path="res://Assets/MainMenu/MM_Play.png" id="2_txptg"]
 [ext_resource type="Script" uid="uid://bvv3vy3thilck" path="res://Script/MainMenu/SubmOnOff.gd" id="3_56wdt"]
@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://b1x1d3jrndrc2" path="res://Script/MainMenu/LampOnOff.gd" id="7_ah1a3"]
 [ext_resource type="Texture2D" uid="uid://dr25r0daltvl" path="res://Assets/MainMenu/MM_Title.png" id="7_k2pwb"]
 [ext_resource type="Texture2D" uid="uid://br2nriulx6j5y" path="res://Assets/MainMenu/MM_BG.png" id="8_ah1a3"]
-[ext_resource type="Script" uid="uid://dl016d0i4gpqy" path="res://Script/MM_Camera.gd" id="9_fv0xt"]
+[ext_resource type="Script" uid="uid://dl016d0i4gpqy" path="res://Script/MainMenu/MM_Camera.gd" id="9_fv0xt"]
 [ext_resource type="Script" uid="uid://dbp6iotsfrbf5" path="res://Script/MainMenu/play.gd" id="11_5o35t"]
 [ext_resource type="Script" uid="uid://bfdxtq64ftxtw" path="res://Script/MainMenu/options.gd" id="14_ahojg"]
 

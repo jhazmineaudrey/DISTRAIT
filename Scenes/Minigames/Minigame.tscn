@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://daic8qdx5xiki"]
+
+[ext_resource type="Texture2D" uid="uid://d2h82p4p3dwun" path="res://Assets/MinigameBG.png" id="1_t2mp6"]
+
+[node name="Minigame" type="Node2D" unique_id=1820706374]
+
+[node name="FadeBG" type="ColorRect" parent="." unique_id=2069629556]
+offset_left = -27.0
+offset_top = -29.0
+offset_right = 1312.0
+offset_bottom = 751.0
+color = Color(0, 0, 0, 0.43529412)
+
+[node name="MinigameBG" type="Sprite2D" parent="." unique_id=786594448]
+texture = ExtResource("1_t2mp6")
+centered = false
