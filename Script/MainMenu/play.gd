@@ -5,7 +5,7 @@ extends Button
 @onready var buttons: Node2D = $".."
 
 func _on_pressed() -> void:
-	SceneLoader.load_scene("uid://berhvdtyr4qjv", 2)
+	SceneLoader.load_scene("uid://dcdm17kuw6dyk", 2)
 	var btns = buttons.get_children()
 	
 	for i in btns:

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dcdm17kuw6dyk"]
+
+[ext_resource type="Script" uid="uid://doc5isliow01a" path="res://Script/pre_game_disclaimer.gd" id="1_fx251"]
+[ext_resource type="FontFile" uid="uid://dm4uqsb2aowe5" path="res://Assets/Fonts/Viga-Regular.ttf" id="2_fkbrh"]
+
+[node name="PreGameDisclaimer" type="Node2D" unique_id=489834742]
+script = ExtResource("1_fx251")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2037764213]
+offset_left = -50.0
+offset_top = -35.0
+offset_right = 1338.0
+offset_bottom = 760.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=874891068]
+modulate = Color(1, 1, 1, 0)
+offset_left = 341.0
+offset_top = 47.0
+offset_right = 928.0
+offset_bottom = 152.0
+theme_override_fonts/normal_font = ExtResource("2_fkbrh")
+theme_override_font_sizes/normal_font_size = 76
+text = "DISCLAIMER"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="RichTextLabel" parent="." unique_id=1295104573]
+modulate = Color(1, 1, 1, 0)
+offset_left = 76.0
+offset_top = 118.0
+offset_right = 1191.0
+offset_bottom = 427.0
+theme_override_fonts/normal_font = ExtResource("2_fkbrh")
+theme_override_font_sizes/normal_font_size = 50
+text = "This game was initially made for the Zone Out event from Hack Club."
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title3" type="RichTextLabel" parent="." unique_id=39224511]
+modulate = Color(1, 1, 1, 0)
+offset_left = 91.0
+offset_top = 375.0
+offset_right = 1206.0
+offset_bottom = 684.0
+theme_override_fonts/normal_font = ExtResource("2_fkbrh")
+theme_override_font_sizes/normal_font_size = 50
+text = "It isn't close to finished yet! Most minigames, for example, aren't playable yet. Take this as a proof of concept for the meantime :]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
