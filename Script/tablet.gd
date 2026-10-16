@@ -8,6 +8,7 @@ func _input(event: InputEvent) -> void:
 		var tab = TABLET_ZOOM.instantiate()
 		
 		canv.add_child(tab)
+		self.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		animation_player.play_backwards("Entrance_Exit")
 		
 		set_process_input(false)
@@ -15,6 +16,8 @@ func _input(event: InputEvent) -> void:
 		await tab.tree_exited
 		set_process_input(true)
 		animation_player.play("Entrance_Exit")
+		await animation_player.animation_finished
+		self.mouse_filter = Control.MOUSE_FILTER_PASS
 
 func _ready() -> void:
 	self.rotation_degrees = 12

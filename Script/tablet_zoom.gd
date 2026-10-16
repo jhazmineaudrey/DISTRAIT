@@ -63,7 +63,7 @@ var TextArray = [
 ]
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Tablet"):
+	if event.is_action_pressed("Tablet") and not copy_place.has_focus():
 		create_tween().tween_property(fade_bg, "modulate:a", 0, 0.5).set_trans(Tween.TRANS_CUBIC)
 		animation_player.play_backwards("Entrance_Exit")
 		await animation_player.animation_finished
